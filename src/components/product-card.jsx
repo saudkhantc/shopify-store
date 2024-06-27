@@ -1,7 +1,5 @@
 import Image from "next/image";
-
 export const ProductCard = ({ node: { id, title, description, images } }) => {
-  
   return (
     <div>
       <div>
@@ -13,7 +11,7 @@ export const ProductCard = ({ node: { id, title, description, images } }) => {
       </div>
       <div>
         <h1>{title}</h1>
-        <p>{description?.slice(0, 100)}...</p>
+        {/* <p>{description?.slice(0, 100)}...</p> */}
       </div>
     </div>
   );
