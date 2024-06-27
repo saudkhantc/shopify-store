@@ -2,19 +2,11 @@ import { getAllProducts } from "../shop/queries/get-product";
 import { ProductCard } from "../components/product-card";
 
 export default async function Home() {
-  const {
-    body: {
-      data: {
-        products: { edges },
-      },
-    },
-  } = await getAllProducts();
-
-
+  const products = await getAllProducts();
   return (
     <div className="flex gap-3">
-      {edges.length > 0 && edges?.map((item) => {
-        return <ProductCard node={item.node} key={item.node.id} />;
+      {products.length > 0 && products?.map((item) => {
+        return <ProductCard node={item} key={item.id} />;
       })}
     </div>
   );

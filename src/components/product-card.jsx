@@ -1,18 +1,10 @@
-import Image from "next/image";
-export const ProductCard = ({ node: { id, title, description, images } }) => {
+export const ProductCard = ({node}) => {
+  const {title,id}=node
   return (
-    <div>
-      <div>
-        {images.edges.map((img, index) => (
-          <div className="relative w-44 h-44" key={index}>
-            <Image src={img?.node?.src} fill />
-          </div>
-        ))}
-      </div>
-      <div>
-        <h1>{title}</h1>
-        {/* <p>{description?.slice(0, 100)}...</p> */}
-      </div>
+    <div className="flex flex-col  items-center p-5 w-full border rounded-md mt-5">
+        <h1>Product Id : {id}</h1>
+        <h1>Product Title : {title}</h1>
+
     </div>
   );
 };
