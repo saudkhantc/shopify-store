@@ -10,9 +10,10 @@ export default async function Home() {
     },
   } = await getAllProducts();
 
+
   return (
     <div className="flex gap-3">
-      {edges.map((item) => {
+      {edges?.map((item) => {
         return <ProductCard node={item.node} key={item.node.id} />;
       })}
     </div>
