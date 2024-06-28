@@ -1,21 +1,27 @@
+"use server";
 const endpoint = process.env.SHOPIFY_STORE_DOMAIN;
 const key = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN;
-import axios from 'axios';
 
-export async function shopifyFetch() {
+export async function shopifyFetch(query) {
   try {
-    const result = await axios({
-      method: 'GET',
-      url: endpoint,
+    const response = await fetch(endpoint + query, {
+      method: "GET",
       headers: {
-        'Content-Type': 'application/json',
-        'X-Shopify-Access-Token': key,
+        "Content-Type": "application/json",
+        "X-Shopify-Access-Token": key,
       },
+      cache:"no-store"
     });
 
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+
     return {
-      status: result.status,
-      data: result.data,
+      status: response.status,
+      data: data,
     };
   } catch (error) {
     console.error("Error:", error);

@@ -5,7 +5,7 @@ export default async function Home() {
   const products = await getAllProducts();
   return (
     <div className="flex flex-wrap justify-center gap-3">
-      {products.length > 0 && products?.map((item) => {
+      {products?.length > 0 && products?.map((item) => {
         return <ProductCard node={item} key={item.id} />;
       })}
     </div>
