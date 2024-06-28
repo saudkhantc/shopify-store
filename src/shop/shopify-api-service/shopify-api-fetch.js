@@ -9,7 +9,7 @@ export async function shopifyFetch(query) {
         "Content-Type": "application/json",
         "X-Shopify-Access-Token": key,
       },
-      cache:"no-store"
+      cache: "no-store",
     });
 
     if (!response.ok) {

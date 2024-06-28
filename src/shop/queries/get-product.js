@@ -1,5 +1,4 @@
 import { shopifyFetch } from "../shopify-api-service/shopify-api-fetch";
-
 export async function getAllProducts() {
   try {
     const response = await shopifyFetch("products.json");
