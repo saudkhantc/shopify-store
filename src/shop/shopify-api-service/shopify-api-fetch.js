@@ -1,4 +1,3 @@
-"use server";
 const endpoint = process.env.SHOPIFY_STORE_DOMAIN;
 const key = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN;
 
